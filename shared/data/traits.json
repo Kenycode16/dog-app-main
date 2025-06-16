@@ -1,0 +1,12 @@
+{
+  "friendly": {
+    "label": "Friendly",
+    "emoji": "😊",
+    "description": "Loves people and other pets"
+  },
+  "intelligent": {
+    "label": "Smart",
+    "emoji": "🧠",
+    "description": "Easy to train and quick to learn"
+  }
+}
