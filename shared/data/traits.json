@@ -1,12 +1,73 @@
 {
-  "friendly": {
-    "label": "Friendly",
-    "emoji": "😊",
-    "description": "Loves people and other pets"
+  "Family Life": {
+    "affectionate_with_family": {
+      "label": "Affectionate With Family",
+      "minLabel": "Independent",
+      "maxLabel": "Lovey-Dovey",
+      "description": "How affectionate a breed is likely to be with family members, or other people he knows well.",
+      "scale": 4
+    },
+    "good_with_young_children": {
+      "label": "Good With Young Children",
+      "minLabel": "Not Recommended",
+      "maxLabel": "Good With Children",
+      "description": "How well the breed interacts with kids, considering temperament and energy level.",
+      "scale": 3
+    },
+    "good_with_other_dogs": {
+      "label": "Good With Other Dogs",
+      "minLabel": "Not Recommended",
+      "maxLabel": "Good With Other Dogs",
+      "description": "How well this breed typically gets along with other dogs.",
+      "scale": 4
+    }
   },
-  "intelligent": {
-    "label": "Smart",
-    "emoji": "🧠",
-    "description": "Easy to train and quick to learn"
+  "Physical": {
+    "shedding_level": {
+      "label": "Shedding Level",
+      "minLabel": "No Shedding",
+      "maxLabel": "Hair Everywhere",
+      "description": "How much fur and hair you can expect the breed to leave behind.",
+      "scale": 2
+    },
+    "coat_grooming_frequency": {
+      "label": "Coat Grooming Frequency",
+      "minLabel": "Monthly",
+      "maxLabel": "Daily",
+      "description": "How frequently a breed requires brushing, trimming, or other grooming.",
+      "scale": 5
+    },
+    "drooling_level": {
+      "label": "Drooling Level",
+      "minLabel": "Less Likely to Drool",
+      "maxLabel": "Always Have a Towel",
+      "description": "How drool-prone the breed tends to be.",
+      "scale": 3
+    }
+  },
+  "Social": {
+    "openness_to_strangers": {
+      "label": "Openness to Strangers",
+      "minLabel": "Reserved",
+      "maxLabel": "Outgoing",
+      "description": "How social the breed is with unfamiliar people.",
+      "scale": 4
+    }
+  },
+  "Personality": {
+    "trainability_level": {
+      "label": "Trainability Level",
+      "minLabel": "Stubborn",
+      "maxLabel": "Eager to Please",
+      "description": "How easy it is to train the breed and how well they respond to commands.",
+      "scale": 5
+    },
+    "energy_level": {
+      "label": "Energy Level",
+      "minLabel": "Couch Potato",
+      "maxLabel": "Always On the Go",
+      "description": "The breed's general activity and energy levels.",
+      "scale": 4
+    }
   }
 }

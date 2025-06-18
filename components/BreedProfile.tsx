@@ -1,8 +1,10 @@
 // BreedProfile.js Component
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import QuizModal from './QuizModal'; // Assuming QuizModal.tsx is in the same directory
+// If QuizModal.tsx is elsewhere, adjust the import path accordingly. e.g. '../components/QuizModal'
 
 const breedImages = {
   // Main breeds
@@ -91,9 +93,19 @@ export default function BreedProfile({ breed }) {
       </View>
     );
   }
-  
+   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const imageSource = breedImages[breed.image];
   const router  = useRouter();
+    const [isQuizVisible, setIsQuizVisible] = useState(false);
+
+  // Cleanup timeout on component unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
   return (
     // This View can act as the overall screen background if BreedDetails doesn't provide one
     <View style={styles.screen}>
@@ -121,14 +133,31 @@ export default function BreedProfile({ breed }) {
         description: breed.description,
         image: breed.image,
         }
-      })}
+        })}
 >         <Ionicons name="information-circle-outline" size={24} color="#333333" style={{marginRight: 10}} />
           <Text style={styles.buttonText}>Learn More</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Compare Breeds:', breed.name)}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Compare Breeds button pressed for:', breed.name);
+            // Clear any existing timeout to prevent multiple navigations
+            if (timeoutRef.current) {
+              clearTimeout(timeoutRef.current);
+            }
+            timeoutRef.current = setTimeout(() => {
+               setIsQuizVisible(true); 
+            }, 5000); // 5000 milliseconds = 5 seconds
+          }}>
+          <Ionicons name="swap-horizontal" size={24} color="#333333" style={{marginRight: 10}} />
           <Text style={styles.buttonText}>Compare Breeds</Text>
         </TouchableOpacity>
       </View>
+      <QuizModal
+        visible={isQuizVisible}
+        onClose={() => setIsQuizVisible(false)}
+
+      />
     </View>
   );
 }
